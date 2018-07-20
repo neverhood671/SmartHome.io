@@ -1,5 +1,7 @@
 @dark_gray: #333;
 @bright_gray: #858585;
+@background_gray: #F7F7F7;
+@yellow: #FFD93E;
 
 @font-face {
     font-family: 'Yandex Sans Display Light';
@@ -8,11 +10,14 @@
     font-style: normal;
 }
 
+
 html {
     font-family: arial;
     font-size: 16px;
     body {
         margin: 1rem 0 1rem 1.25rem;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 
@@ -23,7 +28,7 @@ h2 {
 }
 
 .card {
-    background: #F7F7F7;
+    background: @background_gray;
     border-radius: 20px;
     box-sizing: border-box;
     min-width: 200px;
@@ -155,10 +160,36 @@ h2 {
     }
 
     .devices {
+        /* display: flex;
+        flex-wrap: wrap;*/
+        .filter_section {
+            .device_type {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: min-content;
+                height: 2rem;
+
+                font-size: 0.8rem;
+                line-height: 1rem;
+                font-weight: bold;
+                padding: 0.5rem;
+                background: @background_gray;
+                box-sizing: border-box;
+                border-radius: 1.25rem;
+            }
+        }
         .device_cards {
             display: flex;
             flex-wrap: nowrap;
             overflow-x: hidden;
+
+            .device_status {
+                font-size: 0.75rem;
+                color: @bright_gray;
+            }
         }
     }
 }
@@ -167,18 +198,25 @@ h2 {
     font-size: 0.75rem;
     color: @bright_gray;
     letter-spacing: 0.01px;
-    .link {
-        color: inherit;
-        text-decoration: none;
+    background: #fff;
+
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+
+        .link {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            margin: 1rem 1rem 0 0;
+        }
     }
+
     .corp {
         color: inherit;
+        margin-top: 1rem;
     }
 }
-
-
-
-
 
 
 
@@ -208,7 +246,7 @@ h2 {
                 position: absolute;
                 top: 0;
                 right: 0;
-                margin: 1rem;
+                margin: 1.1rem;
             }
         }
 
@@ -223,9 +261,36 @@ h2 {
         }
     }
 
-    .main_block {
-        .main_block_header {
-            display: none;
+    .main_content {
+        .main_block {
+            .main_block_header {
+                display: none;
+            }
+        }
+
+        .devices {
+            /*.device_block_header {
+                width: 70%;
+            }*/
+            .filter_section {
+                .device_type {
+                    display: none;
+                }
+                .selected {
+                    display: block;
+                    background: @yellow !important;
+
+                    &:after {
+                        content: '▼';
+                    }
+                }
+            }
+            .show_options {
+
+                .device_type {
+                    display: flex;
+                }
+            }
         }
     }
 }

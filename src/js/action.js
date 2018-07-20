@@ -12,5 +12,6 @@ function addOnClickEventListeners(targetElementsSelector, onClickClassName) {
 
 function initPage() {
 	addOnClickEventListeners(".navigation", "show_nav_dropdown");
+	addOnClickEventListeners(".filter_section", "show_options");
 }
 
