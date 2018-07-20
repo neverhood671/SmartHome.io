@@ -160,27 +160,33 @@ h2 {
     }
 
     .devices {
-        /* display: flex;
-        flex-wrap: wrap;*/
-        .filter_section {
-            .device_type {
+        .devices_fitler_section {
+            display: flex;
+            flex-wrap: wrap;
+            .device_block_header{
+            	width: 65%;
+            }
+            .filter {
                 cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                width: min-content;
-                height: 2rem;
-
-                font-size: 0.8rem;
-                line-height: 1rem;
-                font-weight: bold;
-                padding: 0.5rem;
-                background: @background_gray;
-                box-sizing: border-box;
+                border: none;
                 border-radius: 1.25rem;
+                height: 2rem;
+                width: min-content;
+                background: @yellow;
+                padding: 0 0.5rem;
+                margin: 0.5rem 0;
+
+
+                .device_type {
+                    background: @background_gray;
+                }
+
+                .device_type[selected] {
+                    background: @yellow;
+                }
             }
         }
+
         .device_cards {
             display: flex;
             flex-wrap: nowrap;
@@ -268,29 +274,6 @@ h2 {
             }
         }
 
-        .devices {
-            /*.device_block_header {
-                width: 70%;
-            }*/
-            .filter_section {
-                .device_type {
-                    display: none;
-                }
-                .selected {
-                    display: block;
-                    background: @yellow !important;
-
-                    &:after {
-                        content: '▼';
-                    }
-                }
-            }
-            .show_options {
-
-                .device_type {
-                    display: flex;
-                }
-            }
-        }
+        .devices {}
     }
 }

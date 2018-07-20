@@ -79,14 +79,16 @@
             </section>
         </article>
         <article class="devices main_block">
-            <h2 class="device_block_header">Избранные устройства</h2>
-            <section class="filter_section">
-                <p class="device_type selected">Все</p>
-                <p class="device_type">Кухня</p>
-                <p class="device_type">Зал</p>
-                <p class="device_type">Лампочки</p>
-                <p class="device_type">Камеры</p>
-            </section>
+            <div class="devices_fitler_section">
+                <h2 class="device_block_header">Избранные устройства</h2>
+                <select class="filter">
+                    <option class="device_type" value="all" selected>Все</option>
+                    <option class="device_type" value="kitchen">Кухня</option>
+                    <option class="device_type" value="hall">Зал</option>
+                    <option class="device_type" value="lights">Лампочки</option>
+                    <option class="device_type" value="cameras">Камеры</option>
+                </select>
+            </div>
             <section class="devices_section">
                 <div class="device_cards cards">
                     <div class="device_card card">
