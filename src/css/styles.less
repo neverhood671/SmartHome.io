@@ -1,0 +1,225 @@
+@dark_gray: #333;
+@bright_gray: #858585;
+
+@font-face {
+    font-family: 'Yandex Sans Display Light';
+    src: url('../fonts/YandexSansText-Light.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: arial;
+    font-size: 16px;
+    body {
+        margin: 1rem 0 1rem 1.25rem;
+    }
+}
+
+h2 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: @dark_gray;
+}
+
+.card {
+    background: #F7F7F7;
+    border-radius: 20px;
+    box-sizing: border-box;
+    min-width: 200px;
+    min-height: 120px;
+    padding: 0 1rem;
+    margin-right: 1rem;
+}
+
+
+.main_header {
+    width: 100%;
+    .logo {
+        font-family: 'Yandex Sans Display Light', sans-serif;
+        font-size: 2rem;
+        line-height: 2.5rem;
+        color: #151515;
+        &:first-letter {
+            color: #f00;
+        }
+    }
+
+    .navigation {
+        .nav_button {
+            text-decoration: none;
+            color: @dark_gray;
+            opacity: 0.6;
+            font-size: 1rem;
+            line-height: 1.25rem;
+
+            display: flex;
+
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.main_content {
+    display: flex;
+    flex-wrap: wrap;
+
+    .main_block {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .main {
+
+        .main_section {
+            background-image: url("../img/bg_2x.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 1rem 0 1rem 1rem;
+            margin-right: 1.25rem;
+            border-radius: 1.25rem;
+
+            .welcome_block {
+                .welcome {
+                    font-family: arial;
+                    font-weight: bold;
+                    font-size: 1.125rem;
+                    color: @dark_gray
+                }
+
+                .short_status {
+                    font-size: 0.75rem;
+                    color: @dark_gray;
+                }
+            }
+            .weather_block {
+                display: flex;
+                margin-bottom: 1.5rem;
+
+                .weather_card {
+                    margin-right: 0.5rem;
+
+                    .tempreture {
+                        font-size: 1.5rem;
+                        color: @dark_gray;
+                        letter-spacing: 0;
+                        text-align: left;
+                        font-weight: bold;
+                        display: inline-block;
+                        margin: 0;
+                    }
+
+                    .weather_img {
+                        font-size: 1.5rem;
+                        display: inline-block;
+                        margin: 0;
+                    }
+
+                    .place {
+                        font-size: 0.75rem;
+                        color: @bright_gray;
+                    }
+                }
+            }
+
+            .scheduled_scenarios_block {
+
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: hidden;
+                .scenario_card {
+
+                    .scenario_name {
+                        font-size: 0.875rem;
+                        color: @dark_gray
+                    }
+
+                    .scenario_status {
+                        font-size: 0.75rem;
+                        color: @bright_gray;
+                        letter-spacing: 0.01px;
+                    }
+                }
+            }
+        }
+    }
+    .scenarios {
+        .scenario_cards {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: hidden;
+        }
+    }
+
+    .devices {
+        .device_cards {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: hidden;
+        }
+    }
+}
+
+.footer {
+    font-size: 0.75rem;
+    color: @bright_gray;
+    letter-spacing: 0.01px;
+    .link {
+        color: inherit;
+        text-decoration: none;
+    }
+    .corp {
+        color: inherit;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width:800px) {
+
+    .main_header {
+        .navigation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 1rem;
+
+            &:before {
+                cursor: pointer;
+                content: '☰';
+                font-size: 2rem;
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+
+            .nav_button {
+                display: none;
+            }
+        }
+
+        .show_nav_dropdown {
+            &:before {
+                content: '✕';
+            }
+
+            .nav_button {
+                display: block;
+                background: #fff;
+            }
+        }
+    }
+
+    .main_block {
+        .main_block_header {
+            display: none;
+        }
+    }
+}
