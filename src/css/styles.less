@@ -186,33 +186,39 @@ h2 {
 
     .main_header {
         .navigation {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 1rem;
+            .nav_buttons {
+                position: absolute;
+                right: 0;
+                width: 10rem;
+                height: 100%;
+                transform: translateX(10rem);
+                transition: transform 0.3s ease;
+                background: #fff;
+
+                .nav_button {
+                    display: block;
+                    margin: 1rem;
+                }
+            }
 
             &:before {
                 cursor: pointer;
                 content: '☰';
                 font-size: 2rem;
-                display: block;
-                width: 100%;
-                text-align: right;
-            }
-
-            .nav_button {
-                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 1rem;
             }
         }
 
         .show_nav_dropdown {
-            &:before {
-                content: '✕';
+            .nav_buttons {
+                transform: translateX(0);
             }
 
-            .nav_button {
-                display: block;
-                background: #fff;
+            &:before {
+                content: '✕';
             }
         }
     }
