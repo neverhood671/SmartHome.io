@@ -10,7 +10,24 @@ function addOnClickEventListeners(targetElementsSelector, onClickClassName) {
     });
 }
 
-function initPage() {
-	addOnClickEventListeners(".navigation", "show_nav_dropdown");
+function addMouseoverMousoutEventListeners(targetElementsSelector, onMouseoverMousoutClassName) {
+    Array.from(document.querySelectorAll(targetElementsSelector)).forEach(elem => {
+        elem.addEventListener("mouseover", e => {
+            e.currentTarget.classList.add(onMouseoverMousoutClassName);
+        }, true);
+    });
+
+    Array.from(document.querySelectorAll(targetElementsSelector)).forEach(elem => {
+        elem.addEventListener("mouseout", e => {
+            e.currentTarget.classList.remove(onMouseoverMousoutClassName);
+        }, true);
+    });
 }
 
+
+function initPage() {
+	document.querySelector(".selected_value").innerHTML = document.querySelector('.selected .label').innerHTML;
+    addOnClickEventListeners(".navigation", "show_nav_dropdown");
+    addOnClickEventListeners(".filter", "show_device_type");
+    addMouseoverMousoutEventListeners(".card", "card_hover")
+}

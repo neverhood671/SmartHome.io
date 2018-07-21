@@ -24,19 +24,21 @@
         <article class="main main_block">
             <h2 class="main_block_header">Главное</h2>
             <section class="main_section">
-                <div class="welcome_block">
-                    <p class="welcome">Привет, Геннадий!</p>
-                    <p class="short_status">Двери и окна закрыты, сигнализация включена.</p>
-                </div>
-                <div class="weather_block">
-                    <div class="weather_card">
-                        <p class="place">Дома</p>
-                        <p class="tempreture">+23</p>
+                <div class="main_info">
+                    <div class="welcome_block">
+                        <p class="welcome">Привет, Геннадий!</p>
+                        <p class="short_status">Двери и окна закрыты, сигнализация включена.</p>
                     </div>
-                    <div class="weather_card">
-                        <p class="place">За окном</p>
-                        <p class="tempreture">+19</p>
-                        <p class="weather_img">🌧</p>
+                    <div class="weather_block">
+                        <div class="weather_card">
+                            <p class="place">Дома</p>
+                            <p class="tempreture">+23</p>
+                        </div>
+                        <div class="weather_card">
+                            <p class="place">За окном</p>
+                            <p class="tempreture">+19</p>
+                            <p class="weather_img">🌧</p>
+                        </div>
                     </div>
                 </div>
                 <div class="scheduled_scenarios_block">
@@ -50,11 +52,20 @@
                         <p class="scenario_name">Xiaomi Yeelight LED Smart Bulb</p>
                         <p class="scenario_status">Включится в 17:00</p>
                     </div>
+                    <div class="scenario_card card">
+                        <p class="scenario_img">☀</p>
+                        <p class="scenario_name">Xiaomi Yeelight LED Smart Bulb</p>
+                        <p class="scenario_status">Включится в 17:00</p>
+                    </div>
                 </div>
             </section>
         </article>
         <article class="scenarios main_block">
-            <h2>Избранные сценарии</h2>
+            <h2 class="scenarios_header">Избранные сценарии</h2>
+            <div class="scroll_wrapper">
+                <div class="prev"> </div>
+                <div class="next"> </div>
+            </div>
             <section class="scenario_cards cards">
                 <div class="scenario_card card">
                     <p class="scenario_img">☀</p>
@@ -81,13 +92,32 @@
         <article class="devices main_block">
             <div class="devices_fitler_section">
                 <h2 class="device_block_header">Избранные устройства</h2>
-                <select class="filter">
-                    <option class="device_type" value="all" selected>Все</option>
-                    <option class="device_type" value="kitchen">Кухня</option>
-                    <option class="device_type" value="hall">Зал</option>
-                    <option class="device_type" value="lights">Лампочки</option>
-                    <option class="device_type" value="cameras">Камеры</option>
-                </select>
+                <div class="filter">
+                    <div class="selected_value"></div>
+                    <div class="options">
+                        <input type="radio" name="device_type" class="device_type_input" value="all" id="all" checked="checked">
+                        <div class="device_type selected">
+                            <label for="all" class="label">Все</label>
+                        </div>
+                        </input>
+                        <input type="radio" name="device_type" class="device_type_input" value="kitchen" id="kitchen"> </input>
+                        <div class="device_type">
+                            <label for="kitchen" class="label">Кухня</label>
+                        </div>
+                        <input type="radio" name="device_type" class="device_type_input" value="hall" id="hall"> </input>
+                        <div class="device_type">
+                            <label for="hall" class="label">Зал</label>
+                        </div>
+                        <input type="radio" name="device_type" class="device_type_input" value="lights" id="lights"> </input>
+                        <div class="device_type">
+                            <label for="lights" class="label">Лампочки</label>
+                        </div>
+                        <input type="radio" name="device_type" class="device_type_input" value="cameras" id="cameras"></input>
+                        <div class="device_type">
+                            <label for="cameras" class="label">Камеры</label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <section class="devices_section">
                 <div class="device_cards cards">
