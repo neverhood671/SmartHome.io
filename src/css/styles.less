@@ -15,9 +15,8 @@ html {
     font-family: arial;
     font-size: 16px;
     body {
-        margin: 1rem 0 1rem 1.25rem;
+        margin: 0 0 1rem 1.25rem;
         max-width: 100%;
-        overflow-x: hidden;
     }
 }
 
@@ -47,6 +46,7 @@ h2 {
 
 .main_header {
     width: 100%;
+    padding-top: 1rem;
     .logo {
         font-family: 'Yandex Sans Display Light', sans-serif;
         font-size: 2rem;
@@ -244,6 +244,7 @@ h2 {
     color: @bright_gray;
     letter-spacing: 0.01px;
     background: #fff;
+    padding: 0.5rem;
 
     .links {
         display: flex;
@@ -253,13 +254,12 @@ h2 {
             color: inherit;
             text-decoration: none;
             display: block;
-            margin: 1rem 1rem 0 0;
+            margin: 0 1rem;
         }
     }
 
     .corp {
         color: inherit;
-        margin-top: 1rem;
     }
 }
 
@@ -268,12 +268,15 @@ h2 {
 @media screen and (max-width:630px) {
 
     .main_header {
+        position: sticky;
+        top: 0;
+     
+        background: #fff;
         .navigation {
             .nav_buttons {
-                position: absolute;
+                position: fixed;
                 right: 0;
-                width: 10rem;
-                height: 100%;
+                height: 100vh;
                 transform: translateX(10rem);
                 transition: transform 0.3s ease;
                 background: #fff;
@@ -286,7 +289,8 @@ h2 {
                 position: absolute;
                 top: 0;
                 right: 0;
-                margin: 1.1rem;
+                margin-right: 1.1rem;
+                padding-top: 1rem;
             }
         }
 
@@ -343,6 +347,18 @@ h2 {
                     background: #fff;
                 }
             }
+        }
+    }
+
+    .footer {
+        .links {
+            .link {
+                margin: 0.5rem;
+            }
+        }
+
+        .corp {
+            margin: 0.5rem;
         }
     }
 }
@@ -442,8 +458,9 @@ h2 {
     .footer {
         display: flex !important;
         justify-content: space-between !important;
-        padding: 1rem !important;
-        position: sticky;
+        position: fixed;
         bottom: 0;
+        left: 0;
+        right: 0
     }
 }
