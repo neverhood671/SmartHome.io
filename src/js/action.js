@@ -26,8 +26,21 @@ function addMouseoverMousoutEventListeners(targetElementsSelector, onMouseoverMo
 
 
 function initPage() {
-	document.querySelector(".selected_value").innerHTML = document.querySelector('.selected .label').innerHTML;
+    document.querySelector(".selected_value").innerHTML = document.querySelector('.selected .label').innerHTML;
     addOnClickEventListeners(".navigation", "show_nav_dropdown");
     addOnClickEventListeners(".filter", "show_device_type");
-    addMouseoverMousoutEventListeners(".card", "card_hover")
+    addMouseoverMousoutEventListeners(".card", "card_hover");
+
+
+    Array.from(document.querySelectorAll(".card")).forEach(elem => {
+        elem.addEventListener("click", e => {
+            document.querySelector(".popup").classList.add("show_popup");
+        }, true);
+    });
+
+
+    document.querySelector(".close").addEventListener("click", e => {
+        document.querySelector(".popup").classList.remove("show_popup");
+    });
+
 }
