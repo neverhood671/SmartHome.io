@@ -24,16 +24,22 @@ function addMouseoverMousoutEventListeners(targetElementsSelector, onMouseoverMo
     });
 }
 
-
-function initPage() {
-    document.querySelector(".selected_value").innerHTML = document.querySelector('.selected .label').innerHTML;
-    addOnClickEventListeners(".navigation", "show_nav_dropdown");
-    addOnClickEventListeners(".filter", "show_device_type");
-    addMouseoverMousoutEventListeners(".card", "card_hover");
-
-
-    Array.from(document.querySelectorAll(".card")).forEach(elem => {
+function popup() {
+    Array.from(document.querySelectorAll(".device_card")).forEach(elem => {
         elem.addEventListener("click", e => {
+
+            let deviceDefenition = Array.from(e.currentTarget.childNodes),
+                popupWindow = document.querySelector(".popup_window");
+
+            popupWindow.insertAdjacentHTML('afterBegin', e.currentTarget.innerHTML);
+            document.querySelector(".vertical_slider").value = e.currentTarget.lastChild.innerHTML;
+
+            if (e.currentTarget.classList.contains("temp")) {
+                popupWindow.classList.add("temp_popup");
+            } else if (e.currentTarget.classList.contains("light")) {
+                popupWindow.classList.add("light_popup");
+            } else if (e.currentTarget.classList.contains("floor")) {}
+
             document.querySelector(".popup").classList.add("show_popup");
         }, true);
     });
@@ -41,6 +47,29 @@ function initPage() {
 
     document.querySelector(".close").addEventListener("click", e => {
         document.querySelector(".popup").classList.remove("show_popup");
-    });
 
+        let popupWindow = document.querySelector(".popup_window");
+
+        Array.from(document.querySelectorAll(".popup_window .device_def")).forEach(e => {
+            popupWindow.removeChild(e);
+        });
+
+        if (popupWindow.classList.contains("temp_popup")) {
+            popupWindow.classList.remove("temp_popup");
+        } else if (popupWindow.classList.contains("light_popup")) {
+            popupWindow.classList.remove("light_popup");
+        } else if (popupWindow.classList.contains("floor_popup")) {
+            popupWindow.classList.remove("floor_popup");
+        }
+    });
+}
+
+
+function initPage() {
+    document.querySelector(".selected_value").innerHTML = document.querySelector('.selected .label').innerHTML;
+    addOnClickEventListeners(".navigation", "show_nav_dropdown");
+    addOnClickEventListeners(".filter", "show_device_type");
+    addMouseoverMousoutEventListeners(".card", "card_hover");
+
+    popup();
 }

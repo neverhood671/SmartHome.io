@@ -4,6 +4,11 @@
 @yellow: #FFD93E;
 @white: #fff;
 
+@color_gradient: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
+@yellow_gradient: linear-gradient(-85deg, #FF9E00 2%, #FFE682 98%);
+
+
+
 @font-face {
     font-family: 'Yandex Sans Display Light';
     src: url('../fonts/YandexSansText-Light.eot');
@@ -93,9 +98,11 @@ h2 {
             border-radius: 1.125rem;
             padding: 1rem;
 
-            .device_status_img{
+            .device_status_img {
                 font-size: 2.25rem;
                 font-weight: bold;
+                display: flex;
+                justify-content: flex-end;
             }
             .device_options {
                 .device_option {
@@ -107,7 +114,6 @@ h2 {
             }
             .vertical_slider {
                 -webkit-appearance: none !important;
-                background: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
                 border-radius: 35px;
                 width: 340px;
                 height: 60px;
@@ -124,9 +130,6 @@ h2 {
                 cursor: pointer;
             }
 
-            .vertical_slider::-moz-range-track {
-                background: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
-            }
             .vertical_slider::-moz-range-thumb {
                 height: 60px;
                 width: 60px;
@@ -139,6 +142,23 @@ h2 {
             }
         }
 
+        .temp_popup {
+            .vertical_slider {
+                background: @color_gradient;
+            }
+            .vertical_slider::-moz-range-track {
+                background: @color_gradient;
+            }
+        }
+
+        .light_popup {
+            .vertical_slider {
+                background: @yellow_gradient;
+            }
+            .vertical_slider::-moz-range-track {
+                background: @yellow_gradient;
+            }
+        }
 
         .button {
             border: none;
@@ -318,12 +338,31 @@ h2 {
             display: flex;
             flex-wrap: nowrap;
             overflow-x: hidden;
+            .device_card {
+                .device_status {
+                    font-size: 0.75rem;
+                    color: @bright_gray;
+                }
+            }
 
-            .device_status {
-                font-size: 0.75rem;
-                color: @bright_gray;
+            .on {
+                .device_class_img {
+                    color: @yellow;
+                }
+            }
+
+            .off {
+                .device_class_img {
+                    color: @bright_gray;
+                }
             }
         }
+    }
+
+    .device_settings {
+        visibility: hidden;
+        height: 0;
+        margin: 0;
     }
 }
 
@@ -511,7 +550,7 @@ h2 {
 
                 .device_settings_slider {
                     width: 100%;
-                    .vertical_slider{
+                    .vertical_slider {
                         width: 100%;
                     }
                 }
