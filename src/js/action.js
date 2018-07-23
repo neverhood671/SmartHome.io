@@ -36,8 +36,11 @@ function popup() {
 
             if (e.currentTarget.classList.contains("temp")) {
                 popupWindow.classList.add("temp_popup");
+                document.querySelector(".min").innerHTML = document.querySelector(".vertical_slider").min;
+                document.querySelector(".max").innerHTML = document.querySelector(".vertical_slider").max;
             } else if (e.currentTarget.classList.contains("light")) {
                 popupWindow.classList.add("light_popup");
+                document.querySelectorAll(".range_label").forEach(e => e.innerHTML = "☀");
             } else if (e.currentTarget.classList.contains("floor")) {}
 
             document.querySelector(".popup").classList.add("show_popup");

@@ -30,7 +30,9 @@
                         <button class="device_option button">Тепло</button>
                     </div>
                     <div class="device_settings_slider">
+                        <label class="range_label min"></label>
                         <input class="vertical_slider" type="range" min="-10" max="30" step="1" ></input>
+                        <label class="range_label max"></label>
                     </div>
                 </div>
                 <button class="ok button">Применить</button>
@@ -128,7 +130,9 @@
                         <div class="device_type">
                             <label for="lights" class="label">Лампочки</label>
                         </div>
+                    
                         <input type="radio" name="device_type" class="device_type_input" value="cameras" id="cameras"></input>
+
                         <div class="device_type">
                             <label for="cameras" class="label">Камеры</label>
                         </div>
