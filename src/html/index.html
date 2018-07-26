@@ -30,9 +30,18 @@
                         <button class="device_option button">Тепло</button>
                     </div>
                     <div class="device_settings_slider">
-                        <label class="range_label min"></label>
-                        <input class="vertical_slider" type="range" min="-10" max="30" step="1" ></input>
-                        <label class="range_label max"></label>
+                        <label class="range range_label min"></label>
+                        <input class="range vertical_slider" type="range" min="-10" max="30" step="1"></input>
+                        <label class="range range_label max"></label>
+                        
+                        <div class="circle_range circle">
+                            <div class="circle_range_center"></div>
+                            <div class="debug">+10</div>
+                            <div class="dot">
+                                <div class="pointer">▲</div>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
                 <button class="ok button">Применить</button>
@@ -130,9 +139,7 @@
                         <div class="device_type">
                             <label for="lights" class="label">Лампочки</label>
                         </div>
-                    
                         <input type="radio" name="device_type" class="device_type_input" value="cameras" id="cameras"></input>
-
                         <div class="device_type">
                             <label for="cameras" class="label">Камеры</label>
                         </div>
@@ -141,51 +148,51 @@
             </div>
             <section class="devices_section">
                 <div class="device_cards cards">
-                    <div class="device_card card light on">
-                        <p class="device_def device_class_img ">☀</p>
-                        <p class="device_def device_name">Xiaomi Yeelight LED Smart Bulb</p>
+                    <div class="device_card card floor ">
+                        <p class="device_def device_class_img on">🌡</p>
+                        <p class="device_def device_name">Xiaomi Warm Floor</p>
                         <p class="device_def device_status">Включено</p>
-                        <p class="device_def device_settings">-10</p>
+                        <p class="device_def device_settings">25</p>
                     </div>
-                    <div class="device_card card light off">
-                        <p class="device_def device_class_img ">☀</p>
+                    <div class="device_card card light ">
+                        <p class="device_def device_class_img off">☀</p>
                         <p class="device_def device_name">D-Link Omna 180 Camb</p>
                         <p class="device_def device_status">Включится в 17:00</p>
-                         <p class="device_def device_settings">20</p>
+                        <p class="device_def device_settings">20</p>
                     </div>
-                    <div class="device_card card temp off">
-                        <p class="device_def device_class_img ">🌡</p>
+                    <div class="device_card card temp ">
+                        <p class="device_def device_class_img off">🌡</p>
                         <p class="device_def device_name">Elgato Eve Degree Connected</p>
                         <p class="device_def device_status">Выключено до 17:00</p>
                         <p class="device_def device_settings">25</p>
                     </div>
-                    <div class="device_card card light off">
-                        <p class="device_def device_class_img ">☀</p>
+                    <div class="device_card card light ">
+                        <p class="device_def device_class_img off">☀</p>
                         <p class="device_def device_name">LIFX Mini Day & Dusk A60 E27</p>
                         <p class="device_def device_status">Включится в 17:00</p>
                         <p class="device_def device_settings">15</p>
                     </div>
-                    <div class="device_card card light on">
-                        <p class="device_def device_class_img ">☀ </p>
+                    <div class="device_card card light ">
+                        <p class="device_def device_class_img on">☀ </p>
                         <p class="device_def device_name">Xiaomi Yeelight LED Smart Bulb</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">0</p>
                         <p class="device_def device_settings">10</p>
                     </div>
-                    <div class="device_card card light on">
-                        <p class="device_def device_class_img">☀</p>
+                    <div class="device_card card light ">
+                        <p class="device_def device_class_img on">☀</p>
                         <p class="device_def device_name">Xiaomi Mi Air Purifier 2S</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">30</p>
                     </div>
-                    <div class="device_card card light off">
-                        <p class="device_def device_class_img">☀</p>
+                    <div class="device_card card light ">
+                        <p class="device_def device_class_img off">☀</p>
                         <p class="device_def device_name">Philips Zhirui</p>
                         <p class="device_def device_status">Выключено</p>
                         <p class="device_def device_settings">18</p>
                     </div>
-                    <div class="device_card card light on">
-                        <p class="device_def device_class_img">☀</p>
+                    <div class="device_card card light ">
+                        <p class="device_def device_class_img on">☀</p>
                         <p class="device_def device_name">Xiaomi Yeelight LED Smart Bulb</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">10</p>
