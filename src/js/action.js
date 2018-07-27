@@ -26,9 +26,32 @@
      });
  }
 
+
+ function clearPopup() {
+     let popupWindow = document.querySelector(".popup_window");
+
+     Array.from(document.querySelectorAll(".popup_window .device_def")).forEach(e => {
+         popupWindow.removeChild(e);
+     });
+
+     if (popupWindow.classList.contains("temp_popup")) {
+         popupWindow.classList.remove("temp_popup");
+     } else if (popupWindow.classList.contains("light_popup")) {
+         popupWindow.classList.remove("light_popup");
+     } else if (popupWindow.classList.contains("floor_popup")) {
+         popupWindow.classList.remove("floor_popup");
+     }
+ }
+
  function initPopup() {
      Array.from(document.querySelectorAll(".device_card")).forEach(elem => {
          elem.addEventListener("click", e => {
+
+             clearPopup();
+             var offset = getOffsetRect(e.target);
+            /* document.querySelector(".popup_content").style.top = offset.top + "px";
+             document.querySelector(".popup_content").style.left = offset.left + "px";*/
+
 
              let deviceDefenition = Array.from(e.currentTarget.childNodes),
                  popupWindow = document.querySelector(".popup_window");
@@ -47,27 +70,21 @@
                  popupWindow.classList.add("floor_popup");
              }
 
+             document.querySelector("body").classList.add("disable_scroll");
              document.querySelector(".popup").classList.add("show_popup");
+             document.querySelector(".main_content").classList.add("blur_background");
+             document.querySelector(".main_header").classList.add("blur_background");
+             document.querySelector(".footer").classList.add("blur_background");
          }, true);
      });
 
 
      document.querySelector(".close").addEventListener("click", e => {
+         document.querySelector("body").classList.remove("disable_scroll");
          document.querySelector(".popup").classList.remove("show_popup");
-
-         let popupWindow = document.querySelector(".popup_window");
-
-         Array.from(document.querySelectorAll(".popup_window .device_def")).forEach(e => {
-             popupWindow.removeChild(e);
-         });
-
-         if (popupWindow.classList.contains("temp_popup")) {
-             popupWindow.classList.remove("temp_popup");
-         } else if (popupWindow.classList.contains("light_popup")) {
-             popupWindow.classList.remove("light_popup");
-         } else if (popupWindow.classList.contains("floor_popup")) {
-             popupWindow.classList.remove("floor_popup");
-         }
+         document.querySelector(".main_content").classList.remove("blur_background");
+         document.querySelector(".main_header").classList.remove("blur_background");
+         document.querySelector(".footer").classList.remove("blur_background");
      });
  }
 
@@ -81,17 +98,22 @@
      initPopup();
  }
 
+
+
  function initCircleRange() {
 
      is_dragging = false;
 
-     document.querySelector(".circle").addEventListener("mousedown", e => is_dragging = true);
-     document.querySelector(".circle").addEventListener("mouseup", e => is_dragging = false);
+     addListenerMulti(document.querySelector(".circle"), "mousedown touchstart", e => is_dragging = true);
+     addListenerMulti(document.querySelector(".circle"), "mouseup touchend", e => is_dragging = false);
 
-     document.querySelector(".circle").addEventListener("mousemove", e => {
+     addListenerMulti(document.querySelector(".circle"), "mousemove touchmove", e => {
          if (is_dragging) {
              var touch, circle = document.querySelector(".circle");
 
+             if (e.changedTouches) {
+                 touch = e.changedTouches[0];
+             }
 
              var center_x = (document.querySelector(".circle").offsetWidth / 2) + getOffset(document.querySelector(".circle")).left,
                  center_y = (document.querySelector(".circle").offsetHeight / 2) + getOffset(document.querySelector(".circle")).top,
@@ -155,3 +177,9 @@
 
      return { top: Math.round(top), left: Math.round(left) }
  }
+
+
+ function addListenerMulti(elem, events, handler) {
+     events.split(' ').forEach(e => elem.addEventListener(e, handler, false));
+ }
+
