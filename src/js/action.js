@@ -48,10 +48,6 @@
          elem.addEventListener("click", e => {
 
              clearPopup();
-             var offset = getOffsetRect(e.target);
-            /* document.querySelector(".popup_content").style.top = offset.top + "px";
-             document.querySelector(".popup_content").style.left = offset.left + "px";*/
-
 
              let deviceDefenition = Array.from(e.currentTarget.childNodes),
                  popupWindow = document.querySelector(".popup_window");
@@ -127,9 +123,12 @@
                  angle = 360 + angle;
              }
              angle = Math.round(angle);
-             document.querySelector(".dot").setAttribute('style', "transform: rotate(" + angle + "deg)");
-             let tempreture = Math.round(angle > 180 ? (-14 + (angle - 180) * 2 / 15) : (10 + angle * 2 / 15));
-             document.querySelector(".debug").innerHTML = tempreture > 0 ? "+" + tempreture : tempreture;
+             if ((angle < 140) || (angle > 220)) {
+                 document.querySelector(".dot").setAttribute('style', "transform: rotate(" + angle + "deg)");
+                 let tempreture = Math.round(angle > 180 ? (-14 + (angle - 180) * 2 / 15) : (10 + angle * 2 / 15));
+                 document.querySelector(".debug").innerHTML = tempreture > 0 ? "+" + tempreture : tempreture;
+             }
+
 
          }
 
@@ -182,4 +181,3 @@
  function addListenerMulti(elem, events, handler) {
      events.split(' ').forEach(e => elem.addEventListener(e, handler, false));
  }
-
