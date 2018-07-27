@@ -44,7 +44,7 @@ h2 {
     color: @dark_gray;
 }
 
-.disable_scroll{
+.disable_scroll {
     overflow: hidden;
 }
 
@@ -277,6 +277,17 @@ h2 {
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-left: 100px solid transparent;
+                    border-right: 100px solid transparent;
+                    border-bottom: 100px solid @background_gray;
+                    position: relative;
+                    top: 50%;
+                }
             }
 
             .debug {
@@ -581,8 +592,8 @@ h2 {
 
 @media screen and (max-width:630px) {
 
-    .popup  {
-        
+    .popup {
+
 
         .popup_content {
             flex-wrap: wrap;
@@ -729,7 +740,7 @@ h2 {
 
 @media screen and (min-width:631px) {
 
-    .popup  {
+    .popup {
         .popup_content {
             justify-content: center;
             align-items: center;
