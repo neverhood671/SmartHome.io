@@ -20,9 +20,7 @@
             </div>
         </nav>
     </header>
-   
     <main class="main_content">
-       
         <article class="main main_block">
             <h2 class="main_block_header">Главное</h2>
             <section class="main_section">
@@ -63,11 +61,13 @@
             </section>
         </article>
         <article class="scenarios main_block">
-            <h2 class="scenarios_header">Избранные сценарии</h2>
-            <div class="scroll_wrapper">
-                <div class="prev"> </div>
-                <div class="next"> </div>
-            </div>
+            <h2 class="scenarios_header">
+                <div>Избранные сценарии</div>
+                    <div class="scroll_wrapper">
+                        <div class="prev arrow"> </div>
+                        <div class="next arrow"> </div>
+                    </div>
+            </h2>
             <section class="scenario_cards cards">
                 <div class="scenario_card card">
                     <p class="scenario_img sun"> </p>
@@ -120,6 +120,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="scroll_wrapper">
+                    <div class="prev arrow"> </div>
+                    <div class="next arrow"> </div>
+                </div>
             </div>
             <section class="devices_section">
                 <div class="device_cards cards">
@@ -148,7 +152,7 @@
                         <p class="device_def device_settings">15</p>
                     </div>
                     <div class="device_card card light ">
-                        <p class="device_def device_class_img on sun">  </p>
+                        <p class="device_def device_class_img on sun"> </p>
                         <p class="device_def device_name">Xiaomi Yeelight LED Smart Bulb</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">0</p>
@@ -185,34 +189,32 @@
         </div>
         <div class="corp">© 2001–2017 ООО «Яндекс»</div>
     </footer>
-
-     <article class="popup">
-            <div class="popup_content">
-                <div class="popup_window">
-                    <div class="device_options">
-                        <button class="device_option button active">Вручную</button>
-                        <button class="device_option button">Холодно</button>
-                        <button class="device_option button">Тепло</button>
-                    </div>
-                    <div class="device_settings_slider">
-                        <label class="range range_label min"></label>
-                        <input class="range vertical_slider" type="range" min="-10" max="30" step="1"></input>
-                        <label class="range range_label max"></label>
-                        
-                        <div class="circle_range circle">
-                            <div class="gray_circle"></div>
-                            <div class="circle_range_center"></div>
-                            <div class="debug">+10</div>
-                            <div class="dot">
-                                <div class="pointer"></div>
-                            </div>       
+    <article class="popup">
+        <div class="popup_content">
+            <div class="popup_window">
+                <div class="device_options">
+                    <button class="device_option button active">Вручную</button>
+                    <button class="device_option button">Холодно</button>
+                    <button class="device_option button">Тепло</button>
+                </div>
+                <div class="device_settings_slider">
+                    <!--label class="range range_label min"></label-->
+                    <input class="range vertical_slider" type="range" min="-10" max="30" step="1"></input>
+                    <!--label class="range range_label max"></label-->
+                    <div class="circle_range circle">
+                        <div class="gray_circle"></div>
+                        <div class="circle_range_center"></div>
+                        <div class="debug">+10</div>
+                        <div class="dot">
+                            <div class="pointer"></div>
                         </div>
                     </div>
                 </div>
-                <button class="ok button">Применить</button>
-                <button class="close button">Закрыть</button>
             </div>
-        </article>
+            <button class="ok button">Применить</button>
+            <button class="close button">Закрыть</button>
+        </div>
+    </article>
 </body>
 
 </html>
