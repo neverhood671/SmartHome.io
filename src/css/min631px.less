@@ -1,0 +1,124 @@
+@min_value: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIyMHB4IiB3aWR0aD0iMzVweCI+CiAgICA8dGV4dCB4PSIwIiB5PSIxNSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjAiPi0xMDwvdGV4dD4KICA8L3N2Zz4=");
+@max_value: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIyMHB4IiB3aWR0aD0iMzVweCI+CiAgICA8dGV4dCB4PSIwIiB5PSIxNSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjAiPiszMDwvdGV4dD4KICA8L3N2Zz4=");
+@arrow: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAcCAYAAABsxO8nAAAAAXNSR0IArs4c6QAAApBJREFUOBGdlVtvEkEUx7u7GBWxkKJFIYqAPJgYk4pml1vCAy8kfA4+B9+HRwK88mItIEk1kdRiGkKRaLKIiZb7xf9ZmXWKlN06CZkzZ8/5zZzLDDs7/zGWy6Ugy7IrHo/fZ+4CE8zO2WxWLBQKIdg/IB9RFE8qlUrTYhZAdolEwlIsFl9DvMf57ZIscoqtYiaTuTEcDhWEpUMEQZhYLJZTcjQVWiqVuqmqqgJ7bXdyBHBks9nelsvlX7Q2BIVCIaskSXSSO+RAAye5cLlcR/l8fvBHYxAacmKDU5SHQP7pdDrf8BCCXZmjZDJpHwwGUYBu6buKYt/n8x2WSqUx07F5Y2jhcHhvOp3KgOhVhaxardYacjJjzvz8z4kikcg+IAoPgcNXr9dbvQpCwEsnikajbkBeIg+6HnKnVqsdA7zkT7AuS0wRi8UeTyaTAx6OHmmhaz8YQYih7bwKR2ZQmheLRbNer5/wum2ylqP5fP6IN0LffL4OhHw10Gw2u+BBAHuoh3idkayB/H5/E7e4zxnfph6iXuJ0W0Ut2Y1GYxkMBruo2B6srSsPaTQaeVD2751OZ7iVgo961Vqt1gLl7/b7/V1USQsLs0hhBgKBH+12W79Xm6CXGjKXy83T6fQ7VOwLMwZMGo/HMl7Dh0y3adYbj/9IDYmWeI4iPOH1kI/RnOdrOm25EcQMFUV5htCesvVq/gjY2Zrub47WP9AaSVaRbES60B95qPfdbrfQ7XZ7vM/WEzFDhOlFRV+w9Wo+q1arDXZ9TIHIEU+LB2Ee8Bca6nPA3hPMNIhg9F8G0Cv89GoD8gmwU11BhkYDL8E32BwBpD9uAN0lv2uByAG79xwOxyHEHiCq3W43/UKQv+H4DRsSCN7K9o2XAAAAAElFTkSuQmCC');
+
+@color_gradient: linear-gradient(90deg,
+#068FFF 0%,
+#FFD800 50%,
+#F76B1C 100%);
+.popup {
+    .popup_content {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 630px;
+
+        .popup_window {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .device_name {
+                width: 80%;
+            }
+
+            .device_class_img {
+                width: 20%;
+            }
+
+            .device_options {
+                width: 100%;
+
+                .device_option {
+                    margin: 1rem 0;
+                }
+            }
+
+            .device_settings_slider {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .slider {
+                    width: 100%;
+                }
+            }
+        }
+        .ok,
+        .close {
+            margin: 1rem;
+        }
+    }
+
+    .temp_popup {
+        .slider {
+            /*to do: выровнить по вертикали цифры*/
+            background-image: @min_value, @max_value, @color_gradient;
+            background-size: contain, contain, 100%;
+            background-position: left, right;
+        }
+    }
+}
+
+.scroll_wrapper {
+    margin-right: 1.5rem;
+    .arrow {
+        width: 15px;
+        height: 16px;
+        background: @arrow;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .next {
+        transform: scale(-1, 1);
+    }
+}
+
+
+.main_header {
+    display: flex;
+    flex-wrap: nowrap;
+    .navigation {
+        .nav_buttons {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+}
+
+.main_content {
+    .main_section {
+        max-height: 330px;
+        overflow-y: hidden;
+        flex-wrap: nowrap !important;
+        padding-bottom: 0 !important;
+        .main_info {
+            width: 50% !important;
+        }
+        .scheduled_scenarios_block {
+            width: 50% !important;
+            flex-wrap: wrap !important;
+            overflow-y: scroll !important;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .scheduled_scenario_card {
+                margin-bottom: 1rem;
+                width: 100%;
+            }
+        }
+    }
+
+    .devices {
+        .devices_fitler_section {
+            justify-content: space-between;
+            .device_block_header {
+                width: auto !important;
+            }
+        }
+    }
+}

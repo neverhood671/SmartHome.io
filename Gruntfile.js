@@ -6,7 +6,10 @@ module.exports = function(grunt) {
                     compress: false
                 },
                 files: {
-                    "build/css/styles.css": "src/css/styles.less"
+                    "build/css/general_styles.css": "src/css/general_styles.less",
+                    "build/css/max630px.css": "src/css/max630px.less",
+                    "build/css/min631px.css": "src/css/min631px.less",
+                    "build/css/min900px.css": "src/css/min900px.less"
                 }
             }
         },
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
         uglify: {
             dev: {
                 options: {
-                    beautify: true
+                    beautify: true 
                 },
                 files: {
                     'build/js/action.min.js': ['src/js/action.js']

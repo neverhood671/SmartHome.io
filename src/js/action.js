@@ -53,15 +53,12 @@
                  popupWindow = document.querySelector(".popup_window");
 
              popupWindow.insertAdjacentHTML('afterBegin', e.currentTarget.innerHTML);
-             document.querySelector(".vertical_slider").value = e.currentTarget.lastChild.innerHTML;
+             document.querySelector(".slider").value = e.currentTarget.lastChild.innerHTML;
 
              if (e.currentTarget.classList.contains("temp")) {
-                 popupWindow.classList.add("temp_popup");
-                 /*document.querySelector(".min").innerHTML = document.querySelector(".vertical_slider").min;
-                 document.querySelector(".max").innerHTML = document.querySelector(".vertical_slider").max;*/
+                 popupWindow.classList.add("temp_popup")
              } else if (e.currentTarget.classList.contains("light")) {
                  popupWindow.classList.add("light_popup");
-                 /*document.querySelectorAll(".range_label").forEach(e => e.innerHTML = "☀");*/
              } else if (e.currentTarget.classList.contains("floor")) {
                  popupWindow.classList.add("floor_popup");
              }
@@ -92,22 +89,30 @@
      addMouseoverMousoutEventListeners(".card", "card_hover");
      initCircleRange();
      initPopup();
-     initScroll();
+     initScroll("scenario_arrow", "scenario_card", "scenario_cards");
+     initScroll("devices_arrow", "device_card", "device_cards");
  }
 
- function initScroll() {
-     document.querySelectorAll(".arrow").forEach(arrow => {
+ function initScroll(arrowClassName, cardsClassName, cardsBlockClassName) {
+     document.querySelectorAll(`.${arrowClassName}`).forEach(arrow => {
          arrow.addEventListener("click", e => {
              var direction = e.currentTarget.classList.contains("next") ? 1 : -1,
-                 cardWidth = parseFloat(document.querySelector(".card").clientWidth),
-                 currentTranslate = /\.*translateX\((.*)px\)/i.exec(document.querySelector(".device_cards").style.transform);
+                 cardWidth = getElementWidth(document.querySelector(`.${cardsClassName}`)),
+                 areaWidth = getElementWidth(document.querySelector(`.${cardsBlockClassName}`)),
+                 offset = Math.floor(areaWidth / cardWidth) * cardWidth,
+                 currentTranslate = /\.*translateX\((.*)px\)/i.exec(document.querySelector(`.${cardsClassName}`).style.transform),
+                 summaryTranslate;
              currentTranslate = currentTranslate == null ? 0 : parseFloat(currentTranslate[1]);
+             summaryTranslate = currentTranslate + direction * offset;
 
-             document.querySelector(".device_cards").style.transform = `translateX(${currentTranslate + direction * cardWidth}px)`;
+             if ((summaryTranslate > 0) || (Math.abs(summaryTranslate) >= document.documentElement.clientWidth)) {
+                 summaryTranslate = 0
+             }
+
+             document.querySelectorAll(`.${cardsClassName}`).forEach(card => card.style.transform = `translateX(${summaryTranslate}px)`);
          });
      }, true);
  }
-
 
 
  function initCircleRange() {
@@ -194,4 +199,13 @@
 
  function addListenerMulti(elem, events, handler) {
      events.split(' ').forEach(e => elem.addEventListener(e, handler, false));
+ }
+
+ function getElementWidth(element) {
+     var style = element.currentStyle || window.getComputedStyle(element),
+         width = element.offsetWidth,
+         margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight),
+         padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
+         border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+     return width + margin - padding + border;
  }
