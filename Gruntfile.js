@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         uglify: {
             dev: {
                 options: {
-                    beautify: true 
+                    beautify: true
                 },
                 files: {
                     'build/js/action.min.js': ['src/js/action.js']
@@ -59,9 +59,15 @@ module.exports = function(grunt) {
                 files: ['src/js/*.js'],
                 tasks: ['uglify']
             }
-
+        },
+        'gh-pages': {
+            options: {
+                base: 'build',
+                repo: 'https://github.com/neverhood671/SmartHome.io.git',
+                message: 'Auto-generated commit'
+            },
+            src: ['**/*']
         }
-
     });
 
 
@@ -70,6 +76,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-gh-pages');
 
 
     grunt.registerTask('default', ['watch']);
