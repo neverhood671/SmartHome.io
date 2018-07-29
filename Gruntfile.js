@@ -39,7 +39,7 @@ module.exports = function(grunt) {
                 },
 
                 files: {
-                    'build/html/index.html': 'src/html/index.html'
+                    'build/index.html': 'src/html/index.html'
                 }
             }
         },
@@ -80,4 +80,5 @@ module.exports = function(grunt) {
 
 
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('deploy', ['gh-pages']);
 };
