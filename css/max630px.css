@@ -1,0 +1,121 @@
+.scroll_wrapper {
+  display: none;
+}
+.popup .popup_content {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.popup .popup_content .ok,
+.popup .popup_content .close,
+.popup .popup_content .popup_window {
+  width: calc(98%);
+  margin: 0.5rem 1rem;
+}
+.popup .popup_content .device_options {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+}
+.popup .popup_content .device_class_img {
+  display: none !important;
+}
+.popup .popup_content .device_settings_slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  padding: 1rem;
+}
+.popup .popup_content .slider {
+  width: 30vh !important;
+  transform: rotate(-90deg) !important;
+  background-size: 20%, 20%, cover !important;
+}
+.popup .popup_content .temp_popup .slider {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSI4MHB4IiB3aWR0aD0iMzVweCIgdHJhbnNmb3JtPSJyb3RhdGUoOTApIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjQ1IiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMHB4Ij4tMTA8L3RleHQ+CiAgPC9zdmc+"), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSI4MHB4IiB3aWR0aD0iMzVweCIgdHJhbnNmb3JtPSJyb3RhdGUoOTApIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjQ1IiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMHB4Ij4rMzA8L3RleHQ+CiA8L3N2Zz4="), linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%);
+}
+.scheduled_scenarios_block {
+  overflow-x: scroll !important;
+}
+.main_header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: #ffffff;
+}
+.main_header .navigation .nav_buttons {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  transform: translateX(10rem);
+  transition: transform 0.3s ease;
+  background: #ffffff;
+}
+.main_header .navigation:before {
+  cursor: pointer;
+  content: '☰';
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1.1rem;
+  padding-top: 1rem;
+}
+.main_header .show_nav_dropdown .nav_buttons {
+  transform: translateX(0);
+}
+.main_header .show_nav_dropdown:before {
+  content: '✕';
+}
+.scenario_cards {
+  overflow-x: scroll !important;
+}
+.main_content .main .main_block_header {
+  display: none;
+}
+.main_content .devices .device_cards {
+  overflow-x: scroll;
+}
+.main_content .devices .filter {
+  flex-wrap: wrap !important;
+  width: 20% !important;
+}
+.main_content .devices .filter .selected_value {
+  display: flex !important;
+  background: #ffd93e;
+  height: 2rem;
+  box-sizing: border-box;
+  border-radius: 1.125rem;
+  padding: 0.5rem 1rem;
+}
+.main_content .devices .filter .selected_value:after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAcCAYAAABsxO8nAAAAAXNSR0IArs4c6QAAApBJREFUOBGdlVtvEkEUx7u7GBWxkKJFIYqAPJgYk4pml1vCAy8kfA4+B9+HRwK88mItIEk1kdRiGkKRaLKIiZb7xf9ZmXWKlN06CZkzZ8/5zZzLDDs7/zGWy6Ugy7IrHo/fZ+4CE8zO2WxWLBQKIdg/IB9RFE8qlUrTYhZAdolEwlIsFl9DvMf57ZIscoqtYiaTuTEcDhWEpUMEQZhYLJZTcjQVWiqVuqmqqgJ7bXdyBHBks9nelsvlX7Q2BIVCIaskSXSSO+RAAye5cLlcR/l8fvBHYxAacmKDU5SHQP7pdDrf8BCCXZmjZDJpHwwGUYBu6buKYt/n8x2WSqUx07F5Y2jhcHhvOp3KgOhVhaxardYacjJjzvz8z4kikcg+IAoPgcNXr9dbvQpCwEsnikajbkBeIg+6HnKnVqsdA7zkT7AuS0wRi8UeTyaTAx6OHmmhaz8YQYih7bwKR2ZQmheLRbNer5/wum2ylqP5fP6IN0LffL4OhHw10Gw2u+BBAHuoh3idkayB/H5/E7e4zxnfph6iXuJ0W0Ut2Y1GYxkMBruo2B6srSsPaTQaeVD2751OZ7iVgo961Vqt1gLl7/b7/V1USQsLs0hhBgKBH+12W79Xm6CXGjKXy83T6fQ7VOwLMwZMGo/HMl7Dh0y3adYbj/9IDYmWeI4iPOH1kI/RnOdrOm25EcQMFUV5htCesvVq/gjY2Zrub47WP9AaSVaRbES60B95qPfdbrfQ7XZ7vM/WEzFDhOlFRV+w9Wo+q1arDXZ9TIHIEU+LB2Ee8Bca6nPA3hPMNIhg9F8G0Cv89GoD8gmwU11BhkYDL8E32BwBpD9uAN0lv2uByAG79xwOxyHEHiCq3W43/UKQv+H4DRsSCN7K9o2XAAAAAElFTkSuQmCC');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(-90deg);
+}
+.main_content .devices .filter .options {
+  display: none !important;
+}
+.main_content .devices .filter .options .device_type {
+  background: #ffffff !important;
+  width: 100%;
+}
+.main_content .devices .show_device_type .options {
+  display: flex !important;
+  flex-wrap: wrap;
+  position: relative;
+  position: absolute;
+  background: #ffffff;
+}
+.footer .links .link {
+  margin: 0.5rem;
+}
+.footer .corp {
+  margin: 0.5rem;
+}
