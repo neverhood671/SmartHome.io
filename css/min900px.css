@@ -22,9 +22,11 @@
   padding-left: 0.5rem !important;
 }
 .scenarios .scenario_cards {
-  flex-wrap: wrap !important;
+  -ms-flex-wrap: wrap !important;
+      flex-wrap: wrap !important;
   padding-left: 0.5rem !important;
-  flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
   max-height: 340px;
 }
 .scenarios .scenario_cards .scenario_card {
@@ -38,8 +40,10 @@
   padding: 0.5rem !important;
 }
 .footer {
+  display: -ms-flexbox !important;
   display: flex !important;
-  justify-content: space-between !important;
+  -ms-flex-pack: justify !important;
+      justify-content: space-between !important;
   position: fixed;
   bottom: 0;
   left: 0;
