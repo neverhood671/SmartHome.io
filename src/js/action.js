@@ -96,7 +96,7 @@
  function initScroll(arrowClassName, cardsClassName, cardsBlockClassName) {
      document.querySelectorAll(`.${arrowClassName}`).forEach(arrow => {
          arrow.addEventListener("click", e => {
-             var direction = e.currentTarget.classList.contains("next") ? 1 : -1,
+             var direction = e.currentTarget.classList.contains("next") ? -1 : 1,
                  cardWidth = getElementWidth(document.querySelector(`.${cardsClassName}`)),
                  areaWidth = getElementWidth(document.querySelector(`.${cardsBlockClassName}`)),
                  offset = Math.floor(areaWidth / cardWidth) * cardWidth,

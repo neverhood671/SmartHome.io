@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
         autoprefixer: {
             no_dest: {
-                src: "build/css/styles.css"
+                src: ["build/css/general_styles.css", "build/css/max630px.css", "build/css/min631px.css", "build/css/min900px.css"]
             }
         },
 
@@ -60,6 +60,7 @@ module.exports = function(grunt) {
                 tasks: ['uglify']
             }
         },
+
         'gh-pages': {
             options: {
                 base: 'build',
@@ -74,7 +75,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-gh-pages');
 
