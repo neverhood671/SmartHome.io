@@ -86,6 +86,7 @@
      document.querySelector(".selected_value").innerHTML = document.querySelector('.selected').innerHTML;
      addOnClickEventListeners(".navigation", "show_nav_dropdown");
      addOnClickEventListeners(".filter", "show_device_type");
+     addMouseoverMousoutEventListeners(".card", "card_hover");
      initFilter();
      initCircleRange();
      initVerticalScroll();
@@ -116,10 +117,17 @@
      }, true);
  }
 
- function initVerticalScroll(){
-    document.querySelector(".scheduled_scenarios_block").addEventListener("scroll", e=>{
-        document.querySelector(".arrows").classList.add("hide");
-    });  
+ function initVerticalScroll() {
+     document.querySelector(".scheduled_scenarios_block").addEventListener("scroll", e => {
+         var cardWithArrows = document.querySelector(".scheduled_scenario_card:nth-of-type(3)"),
+             hideArrowClassName = "scroll";
+         if (!cardWithArrows.classList.contains(hideArrowClassName)) {
+             cardWithArrows.classList.add(hideArrowClassName);
+         }
+         if (e.target.scrollTop == 0) {
+             cardWithArrows.classList.remove(hideArrowClassName);
+         }
+     });
  }
 
 
@@ -129,6 +137,7 @@
              document.querySelectorAll(".device_type.selected").forEach(e => e.classList.remove("selected"));
              e.currentTarget.classList.add("selected");
              document.querySelector(".selected_value").innerHTML = e.currentTarget.innerHTML;
+
 
              Array.from(document.querySelectorAll(".hide")).forEach(elem => elem.classList.remove("hide"));
              var selectedOption = document.querySelector(".device_type.selected").id;
@@ -178,12 +187,9 @@
              if ((angle < 140) || (angle > 220)) {
                  document.querySelector(".dot").setAttribute('style', "transform: rotate(" + angle + "deg)");
                  let tempreture = Math.round(angle > 180 ? (-14 + (angle - 180) * 2 / 15) : (10 + angle * 2 / 15));
-                 document.querySelector(".debug").innerHTML = tempreture > 0 ? "+" + tempreture : tempreture;
+                 document.querySelector(".temp_display").innerHTML = tempreture > 0 ? "+" + tempreture : tempreture;
              }
-
-
          }
-
      });
 
 
@@ -191,10 +197,8 @@
 
  function getOffset(elem) {
      if (elem.getBoundingClientRect) {
-         // "правильный" вариант
          return getOffsetRect(elem)
      } else {
-         // пусть работает хоть как-то
          return getOffsetSum(elem)
      }
  }

@@ -111,7 +111,7 @@ h2 {
 }
 
 .blur_background {
-    filter: blur(10px) brightness(90%);
+    filter: blur(30px) brightness(90%);
 }
 
 
@@ -170,7 +170,7 @@ h2 {
         position: absolute;
         .popup_window {
 
-            background: @background_gray;
+            background: @white;
             border-radius: 1.125rem;
             padding: 1rem;
             background-repeat: no-repeat;
@@ -293,13 +293,13 @@ h2 {
                     height: 0;
                     border-left: 100px solid transparent;
                     border-right: 100px solid transparent;
-                    border-bottom: 100px solid @background_gray;
+                    border-bottom: 100px solid @white;
                     position: relative;
                     top: 50%;
                 }
             }
 
-            .debug {
+            .temp_display {
                 font-weight: bold;
                 font-size: 66px;
                 color: #333333;
@@ -384,6 +384,11 @@ h2 {
             .close {
                 background: @white;
             }
+
+            .ok,
+            .close {
+                height: 60px;
+            }
         }
 
         .button {
@@ -456,6 +461,9 @@ h2 {
                             display: inline-block;
                             margin: 0;
                             line-height: 1.5rem;
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
                         }
 
                         .weather_img {
@@ -521,13 +529,19 @@ h2 {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+
+            .device_block_header_wrapper {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+            }
             .device_block_header {
                 width: 65%;
                 display: flex;
                 justify-content: space-between;
             }
             .filter {
-
+                margin-left: 15px;
                 .selected_value {
                     display: none;
                     font-weight: bold;

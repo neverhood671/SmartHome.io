@@ -54,7 +54,6 @@
             .close {
                 width: 48%;
                 margin-top: 10px;
-                height: 60px;
             }
         }
     }
@@ -63,7 +62,7 @@
         .slider {
             /*to do: выровнить по вертикали цифры*/
             background-image: @min_value, @max_value, @color_gradient;
-            background-size: contain, contain, 100%;
+            background-size: 40px, 40px, 100%;
             background-position: left, right;
         }
     }
@@ -127,21 +126,39 @@
                 position: relative;
                 margin-bottom: 1rem;
                 width: 100%;
-            }
-            .arrows {
-                background-image: @arrow;
-                background-repeat-x: repeat;
-                background-repeat-y: no-repeat;
-                background-size: 50%;
-                transform: rotate(90deg);
-                width: 16px;
-                height: 16px;
-                position: absolute;
-                bottom: 30px;
-                margin: auto;
-                left: 0;
-                right: 0;
-                z-index: 1;
+
+                &:nth-of-type(3) {
+                    p {
+                        visibility: hidden;
+                    }
+                }
+
+                &:nth-of-type(3):before {
+                    content: "";
+                    background-image: @arrow;
+                    background-repeat-x: repeat;
+                    background-repeat-y: no-repeat;
+                    background-size: 50%;
+                    -webkit-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    top: 10px;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                }
+
+                &.scroll {
+                    p {
+                        visibility: visible;
+                    }
+
+                    &:nth-of-type(3):before {
+                        visibility: hidden;
+                    }
+                }
             }
         }
     }
