@@ -21,8 +21,8 @@
         .ok,
         .close,
         .popup_window {
-            width: calc(100% - 2rem);
-            margin: 0.5rem 1rem;
+            width: 100%;
+            margin: 0.5rem 0;
         }
 
         .device_options {
@@ -58,6 +58,12 @@
 
 .scheduled_scenarios_block {
     overflow-x: scroll !important;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .arrows {
+        display: none;
+    }
 }
 
 .main_header {
@@ -120,7 +126,9 @@
             width: 20% !important;
 
             .selected_value {
+                width: 110px;
                 display: flex !important;
+                justify-content: space-between;
                 background: @yellow;
                 height: 2rem;
                 box-sizing: border-box;

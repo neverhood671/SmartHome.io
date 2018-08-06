@@ -46,9 +46,16 @@
                 }
             }
         }
-        .ok,
-        .close {
-            margin: 1rem;
+
+        .buttons {
+            justify-content: space-between;
+
+            .ok,
+            .close {
+                width: 48%;
+                margin-top: 10px;
+                height: 60px;
+            }
         }
     }
 
@@ -108,14 +115,33 @@
         }
         .scheduled_scenarios_block {
             width: 50% !important;
+            min-width: 220px;
             flex-wrap: wrap !important;
             overflow-y: scroll !important;
+            position: relative;
+
             &::-webkit-scrollbar {
                 display: none;
             }
             .scheduled_scenario_card {
+                position: relative;
                 margin-bottom: 1rem;
                 width: 100%;
+            }
+            .arrows {
+                background-image: @arrow;
+                background-repeat-x: repeat;
+                background-repeat-y: no-repeat;
+                background-size: 50%;
+                transform: rotate(90deg);
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                bottom: 30px;
+                margin: auto;
+                left: 0;
+                right: 0;
+                z-index: 1;
             }
         }
     }

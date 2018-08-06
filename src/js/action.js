@@ -83,15 +83,17 @@
 
 
  function initPage() {
-     document.querySelector(".selected_value").innerHTML = document.querySelector('.selected .label').innerHTML;
+     document.querySelector(".selected_value").innerHTML = document.querySelector('.selected').innerHTML;
      addOnClickEventListeners(".navigation", "show_nav_dropdown");
      addOnClickEventListeners(".filter", "show_device_type");
-     addMouseoverMousoutEventListeners(".card", "card_hover");
+     initFilter();
      initCircleRange();
+     initVerticalScroll();
      initPopup();
      initScroll("scenario_arrow", "scenario_card", "scenario_cards");
      initScroll("devices_arrow", "device_card", "device_cards");
  }
+
 
  function initScroll(arrowClassName, cardsClassName, cardsBlockClassName) {
      document.querySelectorAll(`.${arrowClassName}`).forEach(arrow => {
@@ -112,6 +114,37 @@
              document.querySelectorAll(`.${cardsClassName}`).forEach(card => card.style.transform = `translateX(${summaryTranslate}px)`);
          });
      }, true);
+ }
+
+ function initVerticalScroll(){
+    document.querySelector(".scheduled_scenarios_block").addEventListener("scroll", e=>{
+        document.querySelector(".arrows").classList.add("hide");
+    });  
+ }
+
+
+ function initFilter() {
+     Array.from(document.querySelectorAll(".device_type")).forEach(elem => {
+         elem.addEventListener("click", e => {
+             document.querySelectorAll(".device_type.selected").forEach(e => e.classList.remove("selected"));
+             e.currentTarget.classList.add("selected");
+             document.querySelector(".selected_value").innerHTML = e.currentTarget.innerHTML;
+
+             Array.from(document.querySelectorAll(".hide")).forEach(elem => elem.classList.remove("hide"));
+             var selectedOption = document.querySelector(".device_type.selected").id;
+
+             if (selectedOption !== "all") {
+
+                 Array.from(document.querySelectorAll(".device_card"))
+                     .filter(card => {
+                         return (selectedOption !== card.dataset.room) && (selectedOption !== card.dataset.type);
+                     })
+                     .forEach(card => {
+                         card.classList.add("hide");
+                     });
+             }
+         });
+     })
  }
 
 

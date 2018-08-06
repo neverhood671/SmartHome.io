@@ -11,6 +11,7 @@
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/min900px.css">
     <script async type="text/javascript" src="js/action.min.js"></script>
 </head>
+
 <body onload="initPage()">
     <header class="main_header">
         <div class="logo"></div>
@@ -44,10 +45,16 @@
                     </div>
                 </div>
                 <div class="scheduled_scenarios_block">
+                    <div class="arrows"></div>
                     <div class="scheduled_scenario_card card">
                         <p class="scenario_img thermometer"> </p>
                         <p class="scenario_name">Philips Cooler</p>
                         <p class="scenario_status">Начнет охлаждать в 16:30</p>
+                    </div>
+                    <div class="scheduled_scenario_card card">
+                        <p class="scenario_img sun"> </p>
+                        <p class="scenario_name">Xiaomi Yeelight LED Smart Bulb</p>
+                        <p class="scenario_status">Включится в 17:00</p>
                     </div>
                     <div class="scheduled_scenario_card card">
                         <p class="scenario_img sun"> </p>
@@ -127,27 +134,11 @@
                 <div class="filter">
                     <div class="selected_value"></div>
                     <div class="options">
-                        <input type="radio" name="device_type" class="device_type_input" value="all" id="all" checked="checked">
-                        <div class="device_type selected">
-                            <label for="all" class="label">Все</label>
-                        </div>
-                        </input>
-                        <input type="radio" name="device_type" class="device_type_input" value="kitchen" id="kitchen"> </input>
-                        <div class="device_type">
-                            <label for="kitchen" class="label">Кухня</label>
-                        </div>
-                        <input type="radio" name="device_type" class="device_type_input" value="hall" id="hall"> </input>
-                        <div class="device_type">
-                            <label for="hall" class="label">Зал</label>
-                        </div>
-                        <input type="radio" name="device_type" class="device_type_input" value="lights" id="lights"> </input>
-                        <div class="device_type">
-                            <label for="lights" class="label">Лампочки</label>
-                        </div>
-                        <input type="radio" name="device_type" class="device_type_input" value="cameras" id="cameras"></input>
-                        <div class="device_type">
-                            <label for="cameras" class="label">Камеры</label>
-                        </div>
+                        <div class="device_type selected" id="all">Все</div>
+                        <div class="device_type" id="kitchen">Кухня</div>
+                        <div class="device_type" id="hall">Зал</div>
+                        <div class="device_type" id="light">Лампочки</div>
+                        <div class="device_type" id="camera">Камеры</div>
                     </div>
                 </div>
                 <div class="scroll_wrapper">
@@ -157,50 +148,50 @@
             </div>
             <section class="devices_section">
                 <div class="device_cards cards">
-                    <div class="device_card card floor ">
+                    <div class="device_card card floor" data-room="hall" data-type="floor">
                         <p class="device_def device_class_img on thermometer"> </p>
                         <p class="device_def device_name">Xiaomi Warm Floor</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">25</p>
                     </div>
-                    <div class="device_card card light ">
+                    <div class="device_card card light" data-room="kitchen" data-type="light">
                         <p class="device_def device_class_img off sun"> </p>
                         <p class="device_def device_name">D-Link Omna 180 Camb</p>
                         <p class="device_def device_status">Включится в 17:00</p>
                         <p class="device_def device_settings">20</p>
                     </div>
-                    <div class="device_card card temp ">
+                    <div class="device_card card temp" data-room="hall" data-type="temp">
                         <p class="device_def device_class_img off thermometer"> </p>
                         <p class="device_def device_name">Elgato Eve Degree Connected</p>
                         <p class="device_def device_status">Выключено до 17:00</p>
                         <p class="device_def device_settings">25</p>
                     </div>
-                    <div class="device_card card light ">
+                    <div class="device_card card light " data-room="kitchen" data-type="light">
                         <p class="device_def device_class_img off sun"> </p>
                         <p class="device_def device_name">LIFX Mini Day & Dusk A60 E27</p>
                         <p class="device_def device_status">Включится в 17:00</p>
                         <p class="device_def device_settings">15</p>
                     </div>
-                    <div class="device_card card light ">
+                    <div class="device_card card light " data-room="kitchen" data-type="light">
                         <p class="device_def device_class_img on sun"> </p>
                         <p class="device_def device_name">Xiaomi Yeelight LED Smart Bulb</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">0</p>
                         <p class="device_def device_settings">10</p>
                     </div>
-                    <div class="device_card card light ">
+                    <div class="device_card card light " data-room="hall" data-type="light">
                         <p class="device_def device_class_img on sun"> </p>
                         <p class="device_def device_name">Xiaomi Mi Air Purifier 2S</p>
                         <p class="device_def device_status">Включено</p>
                         <p class="device_def device_settings">30</p>
                     </div>
-                    <div class="device_card card light ">
+                    <div class="device_card card light " data-room="hall" data-type="light">
                         <p class="device_def device_class_img off sun"> </p>
                         <p class="device_def device_name">Philips Zhirui</p>
                         <p class="device_def device_status">Выключено</p>
                         <p class="device_def device_settings">18</p>
                     </div>
-                    <div class="device_card card light ">
+                    <div class="device_card card light " data-room="hall" data-type="light">
                         <p class="device_def device_class_img on sun"> </p>
                         <p class="device_def device_name">Xiaomi Yeelight LED Smart Bulb</p>
                         <p class="device_def device_status">Включено</p>
@@ -239,8 +230,10 @@
                     </div>
                 </div>
             </div>
-            <button class="ok button">Применить</button>
-            <button class="close button">Закрыть</button>
+            <div class="buttons">
+                <button class="ok button">Применить</button>
+                <button class="close button">Закрыть</button>
+            </div>
         </div>
     </article>
 </body>
