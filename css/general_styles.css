@@ -30,6 +30,9 @@ h2 {
 .disable_scroll {
   overflow: hidden;
 }
+.hide {
+  display: none !important;
+}
 .card {
   background: #f7f7f7;
   border-radius: 20px;
@@ -106,6 +109,7 @@ h2 {
   bottom: 0;
   right: 0;
   left: 0;
+  margin: 5px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -296,6 +300,19 @@ h2 {
 .popup .popup_content .floor_popup .device_options {
   display: none;
 }
+.popup .popup_content .buttons {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.popup .popup_content .buttons .ok {
+  background: #ffd93e;
+}
+.popup .popup_content .buttons .close {
+  background: #ffffff;
+}
 .popup .popup_content .button {
   border: none;
   border-radius: 1.125rem;
@@ -303,12 +320,6 @@ h2 {
   font-size: 1.125rem;
   padding: 0.5rem;
   cursor: pointer;
-}
-.popup .popup_content .ok {
-  background: #ffd93e;
-}
-.popup .popup_content .close {
-  background: #ffffff;
 }
 .show_popup {
   visibility: visible;
@@ -440,26 +451,20 @@ h2 {
   display: -ms-flexbox;
   display: flex;
 }
-.main_content .devices .devices_fitler_section .filter .options .device_type_input {
-  visibility: hidden;
-}
-.main_content .devices .devices_fitler_section .filter .options .device_type_input:checked + .device_type {
-  background: #ffd93e;
-}
 .main_content .devices .devices_fitler_section .filter .options .device_type {
   height: 2rem;
   box-sizing: border-box;
   border-radius: 1.125rem;
   padding: 0.5rem 1rem;
-  background: #f7f7f7;
-}
-.main_content .devices .devices_fitler_section .filter .options .device_type .label {
-  display: block;
-  width: 100%;
   cursor: pointer;
   text-align: center;
   font-weight: bold;
   font-size: 0.8rem;
+  margin: 0 5px;
+  background: #f7f7f7;
+}
+.main_content .devices .devices_fitler_section .filter .options .device_type.selected {
+  background: #ffd93e;
 }
 .main_content .devices .device_cards {
   display: -ms-flexbox;

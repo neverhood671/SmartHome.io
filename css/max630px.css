@@ -12,8 +12,8 @@
 .popup .popup_content .ok,
 .popup .popup_content .close,
 .popup .popup_content .popup_window {
-  width: calc(98%);
-  margin: 0.5rem 1rem;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 .popup .popup_content .device_options {
   display: -ms-flexbox;
@@ -46,6 +46,12 @@
 }
 .scheduled_scenarios_block {
   overflow-x: scroll !important;
+}
+.scheduled_scenarios_block::-webkit-scrollbar {
+  display: none;
+}
+.scheduled_scenarios_block .arrows {
+  display: none;
 }
 .main_header {
   height: 40px;
@@ -94,8 +100,11 @@
   width: 20% !important;
 }
 .main_content .devices .filter .selected_value {
+  width: 110px;
   display: -ms-flexbox !important;
   display: flex !important;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
   background: #ffd93e;
   height: 2rem;
   box-sizing: border-box;
