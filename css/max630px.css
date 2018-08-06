@@ -15,13 +15,6 @@
   width: 100%;
   margin: 0.5rem 0;
 }
-.popup .popup_content .device_options {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  overflow-x: hidden;
-}
 .popup .popup_content .device_class_img {
   display: none !important;
 }

@@ -19,6 +19,7 @@
 }
 .popup .popup_content .popup_window .device_class_img {
   width: 20%;
+  background-position: right;
 }
 .popup .popup_content .popup_window .device_options {
   width: 100%;
@@ -48,10 +49,16 @@
   margin-top: 10px;
 }
 .popup .temp_popup .slider {
-  /*to do: выровнить по вертикали цифры*/
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIyMHB4IiB3aWR0aD0iMzVweCI+CiAgICA8dGV4dCB4PSIwIiB5PSIxNSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjAiPi0xMDwvdGV4dD4KICA8L3N2Zz4="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIyMHB4IiB3aWR0aD0iMzVweCI+CiAgICA8dGV4dCB4PSIwIiB5PSIxNSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMjAiPiszMDwvdGV4dD4KICA8L3N2Zz4="), linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%);
   background-size: 40px, 40px, 100%;
   background-position: left, right;
+}
+.popup .temp_popup .device_class_img:before {
+  content: attr(data-value);
+  font-weight: bold;
+  font-size: 36px;
+  color: #333333;
+  letter-spacing: 0;
 }
 .scroll_wrapper {
   margin-right: 1.5rem;
