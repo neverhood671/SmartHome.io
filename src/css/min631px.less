@@ -25,7 +25,9 @@
 
             .device_class_img {
                 width: 20%;
+                background-position: right;
             }
+
 
             .device_options {
                 width: 100%;
@@ -60,10 +62,17 @@
 
     .temp_popup {
         .slider {
-            /*to do: выровнить по вертикали цифры*/
             background-image: @min_value, @max_value, @color_gradient;
             background-size: 40px, 40px, 100%;
             background-position: left, right;
+        }
+
+        .device_class_img:before {
+            content: attr(data-value);
+            font-weight: bold;
+            font-size: 36px;
+            color: #333333;
+            letter-spacing: 0;
         }
     }
 }

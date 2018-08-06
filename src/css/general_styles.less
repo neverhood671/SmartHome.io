@@ -175,6 +175,7 @@ h2 {
             padding: 1rem;
             background-repeat: no-repeat;
 
+
             .device_name {
                 order: -1;
                 font-weight: bold;
@@ -192,17 +193,23 @@ h2 {
             .device_class_img {
                 height: 2.25rem;
                 font-weight: bold;
-                display: flex;
-                justify-content: flex-end;
                 line-height: 2.25rem;
                 margin: 0;
             }
             .device_options {
+                max-width: 90vw;
+                overflow-x: scroll;
+                white-space: nowrap;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
                 .device_option {
                     background: #F2F1F0;
                     font-size: 0.8rem;
                     color: #000;
                     font-weight: bold;
+                    margin-right: 10px;
+                    white-space: nowrap;
                 }
                 .active {
                     background: @yellow;
@@ -261,6 +268,15 @@ h2 {
                 background-image: @white_sun, @white_sun, @yellow_gradient;
                 background-size: contain, contain, 100%;
                 background-repeat: no-repeat;
+            }
+            .button.temp {
+                display: none;
+            }
+        }
+
+        .temp_popup {
+            .button.light {
+                display: none;
             }
         }
 
@@ -589,12 +605,6 @@ h2 {
             }
         }
     }
-}
-
-.device_settings {
-    visibility: hidden;
-    height: 0;
-    margin: 0;
 }
 
 .footer {

@@ -50,13 +50,14 @@
              clearPopup();
 
              let deviceDefenition = Array.from(e.currentTarget.childNodes),
-                 popupWindow = document.querySelector(".popup_window");
+                 popupWindow = document.querySelector(".popup_window"),
+                 deviceValue = parseInt(e.currentTarget.firstChild.dataset.value);
 
              popupWindow.insertAdjacentHTML('afterBegin', e.currentTarget.innerHTML);
-             document.querySelector(".slider").value = e.currentTarget.lastChild.innerHTML;
+             document.querySelector(".slider").value = deviceValue;
 
              if (e.currentTarget.classList.contains("temp")) {
-                 popupWindow.classList.add("temp_popup")
+                 popupWindow.classList.add("temp_popup");
              } else if (e.currentTarget.classList.contains("light")) {
                  popupWindow.classList.add("light_popup");
              } else if (e.currentTarget.classList.contains("floor")) {
