@@ -73,8 +73,8 @@ h2 {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHRpdGxlPmljb25fdGVtcGVyYXR1cmVfMjwvdGl0bGU+CjxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgo8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTI1IC0zNjUpIj4KPHJlY3Qgd2lkdGg9IjEzNjYiIGhlaWdodD0iNzY4IiBmaWxsPSJub25lIj48L3JlY3Q+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5NiAxOTYpIj4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjE1IDE1NSkiPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNCAxNCkiPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGwtcnVsZT0ibm9uemVybyI+PC9yZWN0Pgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3IDEpIj4KPHBhdGggZD0ibTcgMTMuNzZ2LTExLjI2YzAtMS4zODA3LTEuMTE5My0yLjUtMi41LTIuNS0xLjM4MDctMi4yMjA0ZS0xNiAtMi41IDEuMTE5My0yLjUgMi41djExLjI2Yy0xLjY0ODEgMS4xMDEyLTIuMzgxNiAzLjE1MTEtMS44MDYyIDUuMDQ3OSAwLjU3NTM3IDEuODk2OCAyLjMyNDEgMy4xOTM4IDQuMzA2MiAzLjE5MzhzMy43MzA5LTEuMjk3IDQuMzA2Mi0zLjE5MzhjMC41NzUzNy0xLjg5NjgtMC4xNTgxMy0zLjk0NjctMS44MDYyLTUuMDQ3OXoiIHN0cm9rZT0iI0Y1QTYyMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjwvcGF0aD4KPGNpcmNsZSBjeD0iNC41IiBjeT0iMTcuNSIgcj0iMy41IiBmaWxsPSIjRkZEOTNFIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjwvY2lyY2xlPgo8L2c+CjwvZz4KPC9nPgo8L2c+CjwvZz4KPC9nPgo8L3N2Zz4=");
 }
 .blur_background {
-  -webkit-filter: blur(10px) brightness(90%);
-          filter: blur(10px) brightness(90%);
+  -webkit-filter: blur(30px) brightness(90%);
+          filter: blur(30px) brightness(90%);
 }
 .main_header {
   width: 100%;
@@ -126,7 +126,7 @@ h2 {
   position: absolute;
 }
 .popup .popup_content .popup_window {
-  background: #f7f7f7;
+  background: #ffffff;
   border-radius: 1.125rem;
   padding: 1rem;
   background-repeat: no-repeat;
@@ -230,11 +230,11 @@ h2 {
   height: 0;
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
-  border-bottom: 100px solid #f7f7f7;
+  border-bottom: 100px solid #ffffff;
   position: relative;
   top: 50%;
 }
-.popup .popup_content .floor_popup .debug {
+.popup .popup_content .floor_popup .temp_display {
   font-weight: bold;
   font-size: 66px;
   color: #333333;
@@ -313,6 +313,10 @@ h2 {
 .popup .popup_content .buttons .close {
   background: #ffffff;
 }
+.popup .popup_content .buttons .ok,
+.popup .popup_content .buttons .close {
+  height: 60px;
+}
 .popup .popup_content .button {
   border: none;
   border-radius: 1.125rem;
@@ -380,6 +384,11 @@ h2 {
   display: inline-block;
   margin: 0;
   line-height: 1.5rem;
+  height: 40px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
 }
 .main_content .main .main_section .main_info .weather_block .weather_card .weather_img {
   width: 1.6rem;
@@ -435,12 +444,23 @@ h2 {
   -ms-flex-align: center;
       align-items: center;
 }
+.main_content .devices .devices_fitler_section .device_block_header_wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-flex-align: center;
+      align-items: center;
+}
 .main_content .devices .devices_fitler_section .device_block_header {
   width: 65%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
       justify-content: space-between;
+}
+.main_content .devices .devices_fitler_section .filter {
+  margin-left: 15px;
 }
 .main_content .devices .devices_fitler_section .filter .selected_value {
   display: none;
